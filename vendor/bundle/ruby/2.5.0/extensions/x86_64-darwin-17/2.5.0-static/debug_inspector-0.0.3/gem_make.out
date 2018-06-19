@@ -1,0 +1,15 @@
+current directory: /Users/nkuroda/Desktop/github/RailsSampleApp/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/nkuroda/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180619-39661-k0h70c.rb extconf.rb
+creating Makefile
+
+current directory: /Users/nkuroda/Desktop/github/RailsSampleApp/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/nkuroda/Desktop/github/RailsSampleApp/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/nkuroda/Desktop/github/RailsSampleApp/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20180619-39661-si1cgo
