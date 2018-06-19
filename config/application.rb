@@ -32,5 +32,13 @@ module RailsSampleApp
 
     # Encrypted secrets
     config.require_master_key = true
+
+    # settings of generator command
+    config.generators do |g|
+      g.skip_routes true
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
   end
 end
