@@ -2,7 +2,9 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Exclude:
+    - vendor/**/*
     - db/**/*
+  DisplayCopNames: true
 
 # classやmoduleの先頭コメント
 Documentation:
