@@ -29,5 +29,8 @@ module RailsSampleApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Encrypted secrets
+    config.require_master_key = true
   end
 end
