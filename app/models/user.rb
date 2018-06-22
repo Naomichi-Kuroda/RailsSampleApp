@@ -32,8 +32,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :posts, inverse_of: :user
   attr_accessor :login
-  has_many :posts, inverse_of: user
 
   validates :name,
             presence: true,
@@ -48,7 +48,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
   has_attached_file :avatar,
-                    styeles: { medium: '300×300>', thumb: '100×100>' },
+                    styles: { medium: '300×300>', thumb: '100×100>' },
                     default_url: '/missing.png'
   validates_attachment_content_type :avatar,
                                     content_type: ['image/jpg', 'image/jpeg', 'image/png']
