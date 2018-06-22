@@ -22,6 +22,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'popper_js'
 gem 'tether-rails'
+gem 'turbolinks'
 
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.2'
