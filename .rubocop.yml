@@ -14,6 +14,9 @@ AllCops:
 Documentation:
   Enabled: false
 
+Security/Open:
+  Enabled: false
+
 # 日本語でのコメント
 Style/AsciiComments:
   Enabled: false
