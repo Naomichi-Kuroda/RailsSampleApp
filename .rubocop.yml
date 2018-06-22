@@ -1,9 +1,13 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
   Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
     - vendor/**/*
-    - db/**/*
   DisplayCopNames: true
 
 # classやmoduleの先頭コメント
@@ -14,9 +18,23 @@ Documentation:
 Style/AsciiComments:
   Enabled: false
 
-# 行長
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# この2つは単発で動かすのが分かっているので Objectを汚染しても問題ない
+Style/MixinUsage:
+  Exclude:
+    - bin/setup
+    - bin/update
+
+# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+Style/StringLiterals:
+  Enabled: false
+
+# "Line is too long"を無効
 Metrics/LineLength:
-  Max: 160
+  Enabled: false
 
 # ブロック内の行数
 Metrics/BlockLength:
