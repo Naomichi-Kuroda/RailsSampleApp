@@ -32,6 +32,9 @@
 #
 
 class User < ApplicationRecord
+  attr_accessor :login
+  has_many :posts, inverse_of: user
+
   validates :name,
             presence: true,
             uniqueness: { case_sensitive: false }
@@ -49,7 +52,6 @@ class User < ApplicationRecord
                     default_url: '/missing.png'
   validates_attachment_content_type :avatar,
                                     content_type: ['image/jpg', 'image/jpeg', 'image/png']
-  attr_accessor :login
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
