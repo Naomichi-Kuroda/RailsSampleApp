@@ -30,11 +30,14 @@
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
 #  posts_count            :integer          default(0), not null
+#  role                   :integer          default(0), not null
 #
 
 class User < ApplicationRecord
   has_many :posts, inverse_of: :user
   attr_accessor :login
+
+  enum role: { user: 0, admin: 1 }
 
   validates :name,
             presence: true,
