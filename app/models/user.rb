@@ -29,6 +29,7 @@
 #  avatar_content_type    :string(255)
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  posts_count            :integer          default(0), not null
 #
 
 class User < ApplicationRecord
@@ -73,5 +74,9 @@ class User < ApplicationRecord
     where(conditions.to_hash).where(
       ["lower(name) = :value OR lower(email) = :value", { value: login.downcase }]
     ).first
+  end
+
+  def created_month
+    created_at.strftime('%Y年%m月')
   end
 end
