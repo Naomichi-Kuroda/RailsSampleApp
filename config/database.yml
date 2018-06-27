@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  host: <%= Rails.application.credentials.production[:DB_HOST] %>
-  database: <%= Rails.application.credentials.production[:DB_NAME] %>
-  username: <%= Rails.application.credentials.production[:DB_USERNAME] %>
-  password: <%= Rails.application.credentials.production[:DB_PASSWORD] %>
+  host: <%= Rails.application.credentials[Rails.env.to_sym][:DB_HOST] %>
+  database: <%= Rails.application.credentials[Rails.env.to_sym][:DB_NAME] %>
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:DB_USERNAME] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:DB_PASSWORD] %>

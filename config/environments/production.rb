@@ -66,7 +66,18 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "RailsSampleApp_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = {
+    host: Rails.application.credentials[Rails.env.to_sym][:HOST_ADDRESS]
+  }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: :plain,
+    user_name: Rails.application.credentials[Rails.env.to_sym][:SMTP_EMAIL],
+    password: Rails.application.credentials[Rails.env.to_sym][:SMTP_PASSWORD]
+  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -97,12 +108,12 @@ Rails.application.configure do
   # Paperclip settings
   config.paperclip_defaults = {
     storage: :s3,
-    bucket: Rails.application.credentials.production[:S3_BUCKET_NAME],
-    s3_region: Rails.application.credentials.production[:AWS_REGION],
+    bucket: Rails.application.credentials[Rails.env.to_sym][:S3_BUCKET_NAME],
+    s3_region: Rails.application.credentials[Rails.env.to_sym][:AWS_REGION],
     s3_host_name: 's3-ap-northeast-1.amazonaws.com',
     s3_credentials: {
-      access_key_id: Rails.application.credentials.production[:AWS_ACCESS_KEY_ID],
-      secret_access_key: Rails.application.credentials.production[:AWS_SECRET_ACCESS_KEY]
+      access_key_id: Rails.application.credentials[Rails.env.to_sym][:AWS_ACCESS_KEY_ID],
+      secret_access_key: Rails.application.credentials[Rails.env.to_sym][:AWS_SECRET_ACCESS_KEY]
     }
   }
 end
